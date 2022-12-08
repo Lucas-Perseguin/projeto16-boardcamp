@@ -7,7 +7,7 @@ export async function getGames(req, res) {
     //Fix the query with query string value
     if (name) {
       games = await connection.query(
-        "SELECT * FROM games WHERE name LIKE $1 || '%';",
+        "SELECT * FROM games WHERE LOWER(name) LIKE LOWER($1) || '%';",
         [name]
       );
     } else {
