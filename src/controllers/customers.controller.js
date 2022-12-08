@@ -17,7 +17,7 @@ export async function getCustomerById(req, res) {
       [id]
     );
     if (!customerFound.rowCount) return res.sendStatus(404);
-    return res.send(customerFound.rows);
+    return res.send(customerFound.rows[0]);
   } catch (err) {
     return res.sendStatus(500);
   }
