@@ -170,7 +170,6 @@ export async function returnRental(req, res) {
     );
     return res.sendStatus(200);
   } catch (err) {
-    console.log(err);
     return res.sendStatus(500);
   }
 }
@@ -182,7 +181,6 @@ export async function deleteRental(req, res) {
       'DELETE FROM rentals WHERE id = $1;',
       [id]
     );
-    console.log(deleted);
     return res.sendStatus(200);
   } catch (err) {
     return res.sendStatus(500);
